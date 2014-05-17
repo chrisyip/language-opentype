@@ -1,0 +1,64 @@
+'scopeName': 'source.opentype'
+'fileTypes': [
+  'feature'
+  'family'
+]
+'firstLineMatch': '^#!.*\\bOpenType'
+'name': 'OpenType Feature File'
+'patterns': [
+  {
+    'match': '(@[A-Za-z][A-Za-z0-9._]+[A-Za-z0-9]?)\\b'
+    'name': 'variable'
+  }
+  {
+    'match': '(\\b(?:language(:?system)?|feature|script|lookup|sub|by|name)\\b)'
+    'name': 'keyword'
+  }
+  {
+    'match': '([\\\'"])[^\\\'"]\\1'
+  }
+  {
+    'match': '(#[^\\n]*)$'
+    'name': 'comment'
+  }
+  {
+    'match': '(\\binclude\\b)\\(([^()]+)\\)'
+    'captures':
+      '1': 'name': 'keyword'
+      '2': 'name': 'string.quoted.double'
+  }
+  {
+    'include': '#double_quoted_string'
+  }
+  {
+    'include': '#numeric'
+  }
+]
+'repository':
+  'double_quoted_string':
+    'patterns': [
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end'
+        'name': 'string.quoted.double'
+        'patterns': [
+          {
+            'match': '\\\\(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
+            'name': 'constant.character.escape'
+          }
+        ]
+      }
+    ]
+  'numeric':
+    'patterns': [
+      {
+        'match': '(?<!\\$)\\b((0([box])[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?(e[+\\-]?[0-9]+)?))\\b'
+        'name': 'constant.numeric'
+      }
+    ]
