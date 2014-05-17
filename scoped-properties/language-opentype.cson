@@ -1,0 +1,6 @@
+'.source.opentype':
+  'editor':
+    'commentStart': '# '
+    'foldEndPattern': '^\\s*\\}|^\\s*\\]|^\\s*\\)'
+    'increaseIndentPattern': '[\\[\\{}]'
+    'decreaseIndentPattern': '^(.*\\*/)?\\s*(\\}|\\])'
