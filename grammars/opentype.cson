@@ -10,7 +10,7 @@
     'name': 'variable'
   }
   {
-    'match': '(\\b(?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|include|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
+    'match': '(\\b(?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
     'name': 'keyword'
   }
   {
@@ -21,7 +21,7 @@
     'name': 'comment'
   }
   {
-    'match': '(\\binclude\\b)\\(([^()]+)\\)'
+    'match': '\\b(include)\\s*\\(([^()]+)\\)'
     'captures':
       '1': 'name': 'keyword'
       '2': 'name': 'string.quoted.double'
