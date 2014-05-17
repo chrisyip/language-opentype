@@ -8,8 +8,7 @@ pull request to add snippets, make grammar tweaks, etc.
 # Supported file
 
 ```
-.family
-.feature
+.fea
 ```
 
 Or first line is

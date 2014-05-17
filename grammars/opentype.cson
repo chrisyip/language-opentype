@@ -1,7 +1,6 @@
 'scopeName': 'source.opentype'
 'fileTypes': [
-  'feature'
-  'family'
+  'fea'
 ]
 'firstLineMatch': '^#!.*\\bOpenType'
 'name': 'OpenType Feature File'
