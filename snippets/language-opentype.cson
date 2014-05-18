@@ -1,0 +1,7 @@
+'.source.opentype':
+  'Feature Block':
+    'prefix': 'f'
+    'body': 'feature ${1:tag} {\n\t${2:lookups}\n} ${1:tag};'
+  'Sub Rule':
+    'prefix': 's'
+    'body': 'sub ${1:glyph(s)} by ${2:glyph(s)};'
