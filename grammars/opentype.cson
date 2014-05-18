@@ -6,8 +6,10 @@
 'name': 'OpenType Feature File'
 'patterns': [
   {
-    'match': '(@[A-Za-z][A-Za-z0-9._]+[A-Za-z0-9]?)\\b'
-    'name': 'variable'
+    'match': '(@)([A-Za-z][A-Za-z0-9._]+[A-Za-z0-9]?)\\b'
+    'captures':
+      '1': 'name': 'special_characters.opentype'
+      '2': 'name': 'variable'
   }
   {
     'match': '(\\b(?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
@@ -27,6 +29,9 @@
       '2': 'name': 'string.quoted.double'
   }
   {
+    'include': '#special_characters'
+  }
+  {
     'include': '#double_quoted_string'
   }
   {
@@ -34,17 +39,24 @@
   }
 ]
 'repository':
+  'special_characters':
+    'patterns': [
+      {
+        'match': '[#;,\\-\\=\'\\{\\}\\[\\]\\<\\>\\(\\)]'
+        'name': 'special_characters.opentype'
+      }
+    ]
   'double_quoted_string':
     'patterns': [
       {
         'begin': '"'
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.string.begin'
+            'name': 'special_characters.opentype'
         'end': '"'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end'
+            'name': 'special_characters.opentype'
         'name': 'string.quoted.double'
         'patterns': [
           {
