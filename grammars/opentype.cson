@@ -29,10 +29,12 @@
     'name': 'comment'
   }
   {
-    'match': '\\b(include)\\s*\\(([^()]+)\\)'
+    'match': '\\b(include)\\s*(\\()([^()]+)(\\))'
     'captures':
       '1': 'name': 'keyword'
-      '2': 'name': 'string.quoted.double'
+      '2': 'name': 'special_characters.opentype'
+      '3': 'name': 'string.quoted.double'
+      '4': 'name': 'special_characters.opentype'
   }
   {
     'include': '#special_characters'
