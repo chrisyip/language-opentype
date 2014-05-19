@@ -16,3 +16,8 @@ Or first line is
 ```
 #! OpenType
 ```
+
+# Contributors
+
+- [Chris Yip](https://github.com/chrisyip)
+- [Liang Hai](https://github.com/lianghai)
