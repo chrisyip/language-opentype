@@ -41,6 +41,10 @@
   {
     'include': '#double_quoted_string'
   }
+  {
+    'match': '[A-Za-z_]([A-Za-z0-9._/]*[A-Za-z0-9._]+)?'
+    'name': 'normal_text.opentype'
+  }
 ]
 'repository':
   'keyword_as_glyph_name':
