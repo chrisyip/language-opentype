@@ -18,6 +18,9 @@
     'include': '#keyword'
   }
   {
+    'include': '#numeric_as_glyph_name'
+  }
+  {
     'match': '(#[^\\n]*)$'
     'name': 'comment.opentype'
   }
@@ -28,12 +31,6 @@
       '2': 'name': 'special_characters.opentype'
       '3': 'name': 'string.quoted.double'
       '4': 'name': 'special_characters.opentype'
-  }
-  {
-    'match': '(\\\\)([0-9]+(?:\\.[0-9]+)?)'
-    'captures':
-      '1': 'name': 'special_characters.opentype'
-      '2': 'name': 'glyph_name.opentype'
   }
   {
     'include': '#numeric'
@@ -52,7 +49,7 @@
         'match': '(\\\\)((?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
         'captures':
           '1': 'name': 'special_characters.opentype'
-          '2': 'name': 'glyph_name.opentype'
+          '2': 'name': 'normal_text.opentype'
       }
     ]
   'keyword':
@@ -60,6 +57,15 @@
       {
         'match': '(\\b(?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
         'name': 'keyword'
+      }
+    ]
+  'numeric_as_glyph_name':
+    'patterns': [
+      {
+        'match': '(\\\\)([0-9]+(?:\\.[0-9]+)?)'
+        'captures':
+          '1': 'name': 'special_characters.opentype'
+          '2': 'name': 'normal_text.opentype'
       }
     ]
   'special_characters':
