@@ -9,24 +9,17 @@
     'match': '(@)([A-Za-z][A-Za-z0-9._]+[A-Za-z0-9]?)\\b'
     'captures':
       '1': 'name': 'special_characters.opentype'
-      '2': 'name': 'variable'
+      '2': 'name': 'glyph_class_name.opentype'
   }
   {
-    'match': '(\\\\)((?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
-    'captures':
-      '1': 'name': 'special_characters.opentype'
-      '2': 'name': 'variable'
+    'include': '#keyword_as_glyph_name'
   }
   {
-    'match': '(\\b(?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
-    'name': 'keyword'
-  }
-  {
-    'match': '([\\\'"])[^\\\'"]\\1'
+    'include': '#keyword'
   }
   {
     'match': '(#[^\\n]*)$'
-    'name': 'comment'
+    'name': 'comment.opentype'
   }
   {
     'match': '\\b(include)\\s*(\\()([^()]+)(\\))'
@@ -37,16 +30,38 @@
       '4': 'name': 'special_characters.opentype'
   }
   {
+    'match': '(\\\\)([0-9]+(?:\\.[0-9]+)?)'
+    'captures':
+      '1': 'name': 'special_characters.opentype'
+      '2': 'name': 'glyph_name.opentype'
+  }
+  {
+    'include': '#numeric'
+  }
+  {
     'include': '#special_characters'
   }
   {
     'include': '#double_quoted_string'
   }
-  {
-    'include': '#numeric'
-  }
 ]
 'repository':
+  'keyword_as_glyph_name':
+    'patterns': [
+      {
+        'match': '(\\\\)((?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
+        'captures':
+          '1': 'name': 'special_characters.opentype'
+          '2': 'name': 'glyph_name.opentype'
+      }
+    ]
+  'keyword':
+    'patterns': [
+      {
+        'match': '(\\b(?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
+        'name': 'keyword'
+      }
+    ]
   'special_characters':
     'patterns': [
       {
@@ -77,7 +92,7 @@
   'numeric':
     'patterns': [
       {
-        'match': '\\\\?(?<!\\$)\\b((0([box])[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?(e[+\\-]?[0-9]+)?))\\b'
+        'match': '-?(?<!\\$)\\b((0([box])[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?(e[+\\-]?[0-9]+)?))\\b'
         'name': 'constant.numeric'
       }
     ]
