@@ -8,8 +8,8 @@
   {
     'match': '(@)([A-Za-z_][A-Za-z0-9._]*)\\b'
     'captures':
-      '1': 'name': 'special_characters.opentype'
-      '2': 'name': 'glyph_class_name.opentype'
+      '1': 'name': 'entity.css.opentype'
+      '2': 'name': 'variable.other.less.glyph_class_name.opentype'
   }
   {
     'include': '#keyword_as_glyph_name'
@@ -28,9 +28,9 @@
     'match': '\\b(include)\\s*(\\()([^()]+)(\\))'
     'captures':
       '1': 'name': 'keyword'
-      '2': 'name': 'special_characters.opentype'
+      '2': 'name': 'entity.css.opentype'
       '3': 'name': 'string.quoted.double'
-      '4': 'name': 'special_characters.opentype'
+      '4': 'name': 'entity.css.opentype'
   }
   {
     'include': '#numeric'
@@ -52,7 +52,7 @@
       {
         'match': '(\\\\)((?:anchor|anchorDef|anonymous|anon|by|contour|cursive|device|enumerate|enum|excludeDFLT|exclude_dflt|feature|from|ignore|IgnoreBaseGlyphs|IgnoreLigatures|IgnoreMarks|MarkAttachmentType|UseMarkFilteringSet|includeDFLT|include_dflt|language|languagesystem|lookup|lookupflag|mark|markClass|nameid|NULL|parameters|position|pos|required|RightToLeft|reversesub|rsub|script|substitute|sub|subtable|table|useExtension|valueRecordDef|HorizAxis.BaseTagList|HorizAxis.BaseScriptList|HorizAxis.MinMax|VertAxis.BaseTagList|VertAxis.BaseScriptList|VertAxis.MinMax|GlyphClassDef|Attach|LigatureCaretByDev|LigatureCaretByIndex|LigatureCaretByPos|MarkAttachClass|FontRevision|CaretOffset|Ascender|Descender|LineGap|Panose|TypoAscender|TypoDescender|TypoLineGap|winAscent|winDescent|UnicodeRange|CodePageRange|XHeight|CapHeight|Vendor|sizemenuname|VertTypoAscender|VertTypoDescender|VertTypoLineGap|VertOriginY|VertAdvanceY|FSType|fsType)\\b)'
         'captures':
-          '1': 'name': 'special_characters.opentype'
+          '1': 'name': 'entity.css.opentype'
           '2': 'name': 'normal_text.opentype'
       }
     ]
@@ -68,7 +68,7 @@
       {
         'match': '(\\\\)([0-9]+(?:\\.[0-9]+)?)'
         'captures':
-          '1': 'name': 'special_characters.opentype'
+          '1': 'name': 'entity.css.opentype'
           '2': 'name': 'normal_text.opentype'
       }
     ]
@@ -76,7 +76,7 @@
     'patterns': [
       {
         'match': '[#;,\\-\\=\'\\{\\}\\[\\]\\<\\>\\(\\)]'
-        'name': 'special_characters.opentype'
+        'name': 'entity.css.opentype'
       }
     ]
   'double_quoted_string':
@@ -85,11 +85,11 @@
         'begin': '"'
         'beginCaptures':
           '0':
-            'name': 'special_characters.opentype'
+            'name': 'entity.css.opentype'
         'end': '"'
         'endCaptures':
           '0':
-            'name': 'special_characters.opentype'
+            'name': 'entity.css.opentype'
         'name': 'string.quoted.double'
         'patterns': [
           {
