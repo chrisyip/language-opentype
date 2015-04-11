@@ -1,6 +1,6 @@
 {
   "name": "language-opentype",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "OpenType feature file language support in Atom",
   "engines": {
     "atom": "*",
